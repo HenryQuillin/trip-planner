@@ -40,35 +40,64 @@ noon_msg = f'and when it is noon at home it will be {adjusted_noon}'
 
 if(time_difference < 0):
     adjusted_midnight = 24+time_difference
-
-
 print(midnight_msg)
 print(noon_msg)
 '''
-time_difference = int(input("What is the time difference, in hours, between your home and your destination? If the time is behind, use a negative symbole in front of the amount of hours. "))
+#Time Difference Converter
+time_difference = int(input("What is the time difference, in hours, between your home and your destination? If the time is behind, use a negative symbole in front of the amount of hours: "))
     #our_time_input = 12
 noon = 12
+destination = 'mexico'
+midnight = 0
  # so the time difference could be + or -
  # convert the string to a int
 int_time_difference = int(time_difference)
  # calculate from noon
-difference_hrs = noon + int_time_difference
+difference_hrs_noon = noon + int_time_difference
+difference_hrs_midnight = midnight + int_time_difference
+
+# use % to get how many hours over into the next day could be + or -
+adjusted_noon = difference_hrs_noon%24
+adjusted_midnight = difference_hrs_midnight%24
+
+if difference_hrs_noon <= 24 and difference_hrs_noon >0:
+    print(f'When it is noon at home it will be {adjusted_noon}:00 on the same day in {destination}')
+elif difference_hrs_noon > 24:
+    print(f'When it is noon at home it will be {adjusted_noon}:00 on the next day in {destination}')
+else:
+    print(f'When it is noon at home it will be {adjusted_noon}:00 on the previous day in {destination}')
+
+if difference_hrs_midnight <= 24 and difference_hrs_midnight >0:
+    print(f'When it is midnight at home it will be {adjusted_midnight}:00 on the same day in {destination}')
+elif difference_hrs_midnight > 24:
+    print(f'When it is midnight at home it will be {adjusted_midnight}:00 on the next day in {destination}')
+else:
+    print(f'When it is midnight at home it will be {adjusted_midnight}:00 on the previous day in {destination}')
+print('°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø')
+print(' ')
+#km^2 to miles^2
+km = int(input('What is the square area of your destination country in km^2? '))
+print(f'In miles^2 that is {km/2.59}')
+
+
+'''
 # these two condisions are on different days
-if difference_hrs > 24:
+if difference_hrs_noon > 24:
     print("\n")
  # use % to get how many hours over into the next day
  # so if difference_hrs = 25
-    next_day_differene = difference_hrs%24
-    print(f'you are {next_day_differene} on the next day')# print you and 1hr(s) on the next day
-if difference_hrs > 0:
+    next_day_difference = difference_hrs_noon % 24
+    print(f'you are {next_day_difference} on the next day')# print you and 1hr(s) on the next day
+if difference_hrs_noon < 0:
     print("\n")
  # this is a negative number representing the previous day
  # so if difference_hrs = -2
  # -2%24
  # print you are  2hr(s) on the previous day
-if difference_hrs >=24 and difference_hrs <=0:
+if difference_hrs_noon >=24 and difference_hrs_noon <=0:
     print("\n")
  # print difference_hrs
+print('')
 
 
-
+'''
